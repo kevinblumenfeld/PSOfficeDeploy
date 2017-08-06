@@ -27,7 +27,7 @@ Parameter description
 Parameter description
 
 .EXAMPLE
-get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "D:\scripts\R" -DestinationDir "\\%C\C$\scripts\R"
+get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -DestinationDir "\\%C\C$\scripts\"
 
 #>
 
@@ -44,6 +44,7 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "D:\scripts\R" -
 
     )
     Begin {
+        New-Item -Path c:\ps\logs -ItemType Directory -ErrorAction SilentlyContinue
         $logSuccess = ($(get-date -Format yyyy-MM-dd_HH-mm-ss) + "_CopyToComputer_SUCCESS.csv")
         $logError = ($(get-date -Format yyyy-MM-dd_HH-mm-ss) + "_CopyToComputer_FAILED.csv")
     }
@@ -68,10 +69,10 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "D:\scripts\R" -
                         Else {
                             Try {
                                 New-Item -Type Directory $NewDir
-                                "$comp, $NewDir, Success" | Out-File "c:\scripts\logs\$ulogSuccess" -Encoding ascii -Append
+                                "$comp, $NewDir, Success" | Out-File "c:\ps\logs\$ulogSuccess" -Encoding ascii -Append
                             }
                             Catch {
-                                "$comp, $NewDir, $_" | Out-File "c:\scripts\logs\$ulogError" -Encoding ascii -Append
+                                "$comp, $NewDir, $_" | Out-File "c:\ps\logs\$ulogError" -Encoding ascii -Append
                             }
                         }
                     }
