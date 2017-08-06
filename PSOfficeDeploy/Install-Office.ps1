@@ -17,14 +17,10 @@ function Install-Office {
             Start-Job -ScriptBlock {
                 $comp = $using:_
                 CD C:\Scripts\Deploy\MSI
-                $MSIArguments = @(
-                    "/i"
-                    "C:\Scripts\Deploy\MSI\OfficeProPlus.msi"
-                    "/qn"
-                    "/norestart"
-                )
-                Start-Process "msiexec.exe" -ArgumentList $MSIArguments -Wait -NoNewWindow 
-                # Invoke-Command -ComputerName $comp –FilePath .\fooi.ps1
+                Invoke-Command -ComputerName $comp -ScriptBlock {
+                $P = Start-Process -FilePath msiexec.exe -ArgumentList "/i `"C:\Scripts\Deploy\MSI\OfficeProPlus.msi`" /qn" -Wait -NoNewWindow -PassThru
+                $P.ExitCode
+                }
             }
         }
     }

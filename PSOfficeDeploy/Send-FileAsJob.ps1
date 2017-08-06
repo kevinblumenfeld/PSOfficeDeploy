@@ -27,8 +27,7 @@ Parameter description
 Parameter description
 
 .EXAMPLE
-**Destination Directory must have at least one folder inside of it**
-get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\deploy" -DestinationDir "\\%C\C$\scripts\deploy"
+get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "D:\scripts\R" -DestinationDir "\\%C\C$\scripts\R"
 
 #>
 
