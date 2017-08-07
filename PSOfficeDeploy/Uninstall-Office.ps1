@@ -48,7 +48,7 @@ get-content ./hostnames.txt | Uninstall-Office -RemovalType AnyC2R
                     Invoke-Command -ComputerName $comp -FilePath .\uoDotSourceC2R.ps1
                 }
                 If ($uMSI -ne "MSI" -and $uMSI -ne "AnyC2R") {
-                    CD C:\Scripts\Deploy\MSI
+                    CD C:\Scripts
                     Invoke-Command -ComputerName $comp -FilePath .\uoDotSource.ps1
                 }
             }
