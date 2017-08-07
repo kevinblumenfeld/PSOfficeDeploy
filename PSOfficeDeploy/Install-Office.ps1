@@ -18,7 +18,7 @@ function Install-Office {
                 $comp = $using:_
                 CD C:\Scripts\Deploy\MSI
                 Invoke-Command -ComputerName $comp -ScriptBlock {
-                Start-Process -FilePath msiexec.exe -ArgumentList '/qn /quiet /i C:\Scripts\Deploy\MSI\OfficeProPlus.msi'
+                    msiexec.exe /i "C:\Scripts\Deploy\MSI\OfficeProPlus.msi" /qn /quiet /L*V "C:\scripts\Install_MSI.log"
                 }
             }
         }
