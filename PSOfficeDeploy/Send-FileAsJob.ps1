@@ -76,12 +76,15 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -D
                             }
                         }
                     }
-                }
-                $files = Get-ChildItem -path $source -Recurse -Force -File
-                $files| ForEach-Object { 
-                    Copy-item $_.fullname $_.FullName.replace($source, $destination) -force
-                    Write-Output $($_.FullName.replace($source, $destination))                                   
+                    $files = Get-ChildItem -path $source -Recurse -Force -File
+                    $files| ForEach-Object { 
+                        Copy-item $_.fullname $_.FullName.replace($source, $destination) -force
+                        Write-Output $($_.FullName.replace($source, $destination))    
+                    }                           
                 } 
+                Else {
+                    Copy-Item ($source + "*") $destination
+                }
             } 
         }
     }
