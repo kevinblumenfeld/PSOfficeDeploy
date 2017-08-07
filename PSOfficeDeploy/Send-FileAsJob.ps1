@@ -44,7 +44,7 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -D
 
     )
     Begin {
-        New-Item -Path c:\ps\logs -ItemType Directory -ErrorAction SilentlyContinue
+        $null = New-Item -Path "c:\ps\logs" -ItemType Directory -ErrorAction SilentlyContinue
         $logSuccess = ($(get-date -Format yyyy-MM-dd_HH-mm-ss) + "_CopyToComputer_SUCCESS.csv")
         $logError = ($(get-date -Format yyyy-MM-dd_HH-mm-ss) + "_CopyToComputer_FAILED.csv")
     }
@@ -68,7 +68,7 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -D
                         }
                         Else {
                             Try {
-                                New-Item -Type Directory $NewDir
+                                $null = New-Item -Type Directory $NewDir
                                 "$comp, $NewDir, Success" | Out-File "c:\ps\logs\$ulogSuccess" -Encoding ascii -Append
                             }
                             Catch {
@@ -83,7 +83,7 @@ get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -D
                     }                           
                 } 
                 Else {
-                    Copy-Item ($source + "*") $destination
+                    Copy-Item ($source + "*") $destination -Force
                 }
             } 
         }
