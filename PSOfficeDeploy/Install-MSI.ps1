@@ -2,7 +2,7 @@ function Install-MSI {
     [CmdletBinding(SupportsShouldProcess = $True)]
     param (
         [parameter(Mandatory = $True, ValueFromPipeline = $true)]
-        [string[]] $Computer,
+        [string[]] $Computer
 
     )
 
@@ -12,7 +12,7 @@ function Install-MSI {
     Process {
         Write-Output $($_)
         CD C:\scripts
-        .\psexec.exe \\$($_) "c:\scripts\msi.bat"
+        .\psexec.exe -AcceptEula -s -c \\$($_) "c:\scripts\msi.bat"
     }
     End {
     }
