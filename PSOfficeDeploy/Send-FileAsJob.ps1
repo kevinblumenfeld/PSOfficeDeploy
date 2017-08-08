@@ -27,7 +27,7 @@ Parameter description
 Parameter description
 
 .EXAMPLE
-get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\scripts\" -DestinationDir "\\%C\C$\scripts\"
+get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\oScripts\" -DestinationDir "\\%C\C$\oScripts\"
 
 #>
 

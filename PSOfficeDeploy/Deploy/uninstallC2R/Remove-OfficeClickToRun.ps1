@@ -39,7 +39,7 @@ Will uninstall Office Click-to-Run.
     )
 
      Process{
-        CD C:\Scripts\Deploy\uninstallC2R
+        CD C:\oScripts\Deploy\uninstallC2R
         $currentFileName = Get-CurrentFileName
         Set-Alias -name LINENUM -value Get-CurrentLineNumber 
 

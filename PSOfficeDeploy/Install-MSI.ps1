@@ -7,13 +7,15 @@ function Install-MSI {
     )
 
     Begin {
-
     }
     Process {
         Write-Output $($_)
-        CD C:\scripts
-        .\psexec.exe -AcceptEula -s -c \\$($_) "c:\scripts\msi.bat"
+        Start-Job -ScriptBlock {
+            CD c:\oscripts\deploy
+            .\psexec.exe \\$($args[0]) "c:\oScripts\deploy\msi.bat"
+        } -ArgumentList @($_)
     }
     End {
     }
+    
 }

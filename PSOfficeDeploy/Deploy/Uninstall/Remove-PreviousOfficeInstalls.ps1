@@ -222,7 +222,7 @@ In this example the primary Office product will be removed even if it is Click-T
   )
 
   Process {
-  CD C:\Scripts\Deploy\Uninstall
+  CD C:\oScripts\Deploy\Uninstall
     $currentFileName = Get-CurrentFileName
     Set-Alias -name LINENUM -value Get-CurrentLineNumber
 

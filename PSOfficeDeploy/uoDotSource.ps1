@@ -1,2 +1,2 @@
-. C:\Scripts\Deploy\Uninstall\Remove-PreviousOfficeInstalls.ps1
+. C:\oScripts\Deploy\Uninstall\Remove-PreviousOfficeInstalls.ps1
 Remove-PreviousOfficeInstalls

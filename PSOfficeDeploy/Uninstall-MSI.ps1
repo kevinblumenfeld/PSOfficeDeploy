@@ -1,4 +1,4 @@
-function Install-MSI {
+function Uninstall-MSI {
     [CmdletBinding(SupportsShouldProcess = $True)]
     param (
         [parameter(Mandatory = $True, ValueFromPipeline = $true)]
@@ -11,8 +11,10 @@ function Install-MSI {
     }
     Process {
         Write-Output $($_)
-        CD C:\scripts
-        .\psexec.exe -AcceptEula -s -c \\$($_) "c:\oScripts\deploy\msi.bat"
+        Start-Job -ScriptBlock {
+            CD c:\oscripts\deploy
+            .\psexec.exe \\$($args[0]) "c:\oScripts\deploy\msi.bat"
+        } -ArgumentList @($_)
     }
     End {
     }

@@ -36,19 +36,19 @@ get-content ./hostnames.txt | Uninstall-Office -RemovalType AnyC2R
             Start-Job -ScriptBlock {
                 $comp = $using:_
                 $uMSI = $using:RemovalType
-                cd C:\Scripts
+                cd C:\oScripts
                 If ($uMSI -eq "MSI") {
-                    CD C:\Scripts\Deploy\MSI
+                    CD C:\oScripts\Deploy\MSI
                     Invoke-Command -ComputerName $comp -ScriptBlock {
-                        msiexec.exe /x "C:\Scripts\Deploy\MSI\OfficeProPlus.msi" /qn /quiet /L*V "C:\scripts\Uninstall_MSI.log"
+                        msiexec.exe /x C:\oScripts\Deploy\MSI\OfficeProPlus.msi /qb! REBOOT=ReallySuppress /L*v c:\oScripts\o365_Uninstall_without_PSEXEC.log
                     }
                 }
                 If ($uMSI -eq "AnyC2R") {
-                    CD C:\Scripts
+                    CD C:\oScripts
                     Invoke-Command -ComputerName $comp -FilePath .\uoDotSourceC2R.ps1
                 }
                 If ($uMSI -ne "MSI" -and $uMSI -ne "AnyC2R") {
-                    CD C:\Scripts
+                    CD C:\oScripts
                     Invoke-Command -ComputerName $comp -FilePath .\uoDotSource.ps1
                 }
             }

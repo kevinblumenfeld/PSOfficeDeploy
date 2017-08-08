@@ -16,9 +16,9 @@ function Install-Office {
         $_ | % {
             Start-Job -ScriptBlock {
                 $comp = $using:_
-                CD C:\Scripts\Deploy\MSI
+                CD C:\oScripts\Deploy\MSI
                 Invoke-Command -ComputerName $comp -ScriptBlock {
-                    msiexec.exe /i "C:\Scripts\Deploy\MSI\OfficeProPlus.msi" /qn /quiet /L*V "C:\scripts\Install_MSI.log"
+                    msiexec.exe /i C:\oScripts\Deploy\MSI\OfficeProPlus.msi /qb! REBOOT=ReallySuppress /L*v c:\oScripts\o365_Install_without_PSEXEC.log
                 }
             }
         }
