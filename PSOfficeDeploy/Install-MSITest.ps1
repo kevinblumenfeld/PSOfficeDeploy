@@ -2,7 +2,7 @@ function Install-MSI {
     [CmdletBinding(SupportsShouldProcess = $True)]
     param (
         [parameter(Mandatory = $True, ValueFromPipeline = $true)]
-        [string[]] $Computer,
+        [string[]] $Computer
 
     )
 
