@@ -13,7 +13,7 @@ function Uninstall-MSI {
         Write-Output $($_)
         Start-Job -ScriptBlock {
             CD c:\oscripts\deploy
-            .\psexec.exe -AcceptEula -s -c \\$($args[0]) "c:\oScripts\deploy\unmsi.bat"
+            .\psexec.exe -AcceptEula -s -c \\$($args[0]) "c:\oScripts\deploy\UNmsi.bat"
         } -ArgumentList @($_)
     }
     End {
