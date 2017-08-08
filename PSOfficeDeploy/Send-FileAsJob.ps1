@@ -28,7 +28,7 @@ Parameter description
 
 .EXAMPLE
 get-content ./hostnames.txt | Send-FileAsJob -SourceDirsOrFiles "C:\oScripts\" -DestinationDir "\\%C\C$\oScripts\"
-
+IMPORTANT: INCLUDE THE TRAILING BACKSLASH AFTER FINAL DIRECTORY IN PATH!!!
 #>
 
     Param (
