@@ -1,5 +1,5 @@
 
-1.	Download zip file by clicking green download button here https://github.com/kevinblumenfeld/PSOfficeDeploy   
+1.	*Download zip file* by clicking green download button here https://github.com/kevinblumenfeld/PSOfficeDeploy   
 2.	On Source workstation (use Windows 10 - in PS type $psversiontable if version is lower than 5.1 install PS 5.1)  
     a.	Create directory c:\oScripts  
     b.	Open zip  
