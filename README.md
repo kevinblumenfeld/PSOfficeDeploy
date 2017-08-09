@@ -22,6 +22,6 @@
 7.	Install new Microsoft Office  
     ```Get-Content c:\oScripts\computers.txt | Install-MSI```  
       * Check a few workstations for EventID 1033 _Windows Installer installed the product_
-8.	Report Microsoft Office Versions Installed – output to screen & output to CSV (excel) examples below  
+8.	Report Microsoft Office Versions Installed – output to screen & output to CSV (excel) commands below  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion```  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion  | Export-Csv ./OfficeVersInstalled.csv -NoTypeInformation```  
