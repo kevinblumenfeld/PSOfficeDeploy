@@ -14,7 +14,7 @@
 
 
 5.	Copy files to destination computers - %C is case sensitive & be sure to include the trailing backslashes after last directory  
-    ```Get-Content c:\oScripts\computers.txt | Send-FileAsJob -SourceDirsOrFiles "C:\oScripts\" -DestinationDir \\%C\C$\oScripts\```  
+    ```Get-Content c:\oScripts\computers.txt | Send-FileAsJob -SourceDirsOrFiles C:\oScripts\ -DestinationDir \\%C\C$\oScripts\```  
 6.	Uninstall old Microsoft Office  
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office```  
       * Check a few workstations for EventID 1034 _Windows Installer removed the product Windows Installer installed the product_
