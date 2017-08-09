@@ -18,7 +18,7 @@
     ```Get-Content c:\oScripts\computers.txt | Send-FileAsJob -SourceDirsOrFiles C:\oScripts\ -DestinationDir \\%C\C$\oScripts\```  
 6.	**Uninstall old Microsoft Office**  
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office```  
-      * Check a few workstations for EventID 1034 _Windows Installer removed the product Windows Installer installed the product_
+      * Check a few workstations for EventID 1034 _Windows Installer removed the product_
 7.	**Install new Microsoft Office**  
     ```Get-Content c:\oScripts\computers.txt | Install-MSI```  
       * Check a few workstations for EventID 1033 _Windows Installer installed the product_
