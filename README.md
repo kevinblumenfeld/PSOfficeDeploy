@@ -7,7 +7,7 @@
     d.	Copy each MSI to directory c:\oScripts\Deploy\MSI  
 3.	In c:\oScripts create a text file named computers.txt  (test by adding ONE computer name)  
 4.	Dot Source the functions: Open PowerShell as an administrator on source workstation and run this command  
-    ```Unblock-File C:\oScripts\*```
+    ```Unblock-File C:\oScripts\*```  
     ```Get-ChildItem c:\oScripts\  -Filter '*.ps1' | % {. $_.fullname }```
 
 ------------------------------------------
