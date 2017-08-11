@@ -3,7 +3,7 @@
 2.	**On Source workstation** (use Windows 10 - in PS type $psversiontable if version is lower than 5.1 install PS 5.1)  
     a.	Create directory c:\oScripts  
     b.	Open zip  
-    c.	Copy contents of zip (as shown in image) to c:\oScripts  
+    c.	Copy contents of zip (only .ps1 files and Deploy folder) to c:\oScripts  
     d.	Copy each MSI to directory c:\oScripts\Deploy\MSI  
 3.	**Create a text file** named computers.txt in c:\oScripts (test by adding ONE computer name)  
 4.	**Dot Source the functions**: Open PowerShell as an administrator on source workstation and run this command  
