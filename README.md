@@ -4,7 +4,7 @@
     a.	Create directory c:\oScripts  
     b.	Open zip  
     c.	Copy contents of zip (only .ps1 files and Deploy folder) to c:\oScripts  
-    ![image](https://user-images.githubusercontent.com/28877715/29215743-336998a2-7e7a-11e7-8f73-586215aae5bb.png)
+    ![image](https://user-images.githubusercontent.com/28877715/29215743-336998a2-7e7a-11e7-8f73-586215aae5bb.png)  
     d.	Copy each MSI to directory c:\oScripts\Deploy\MSI  
 3.	**Create a text file** named computers.txt in c:\oScripts (test by adding ONE computer name)  
 4.	**Dot Source the functions**: Open PowerShell as an administrator on source workstation and run this command  
