@@ -2,7 +2,7 @@
 1.	**Download zip file** by clicking green download button here https://github.com/kevinblumenfeld/PSOfficeDeploy   
 2.	**On Source workstation** (use Windows 10 - in PS type $psversiontable if version is lower than 5.1 install PS 5.1)  
     a.	Create directory c:\oScripts  
-    b.	Open zip & copy contents (only pictured files and Deploy folder) to c:\oScripts  
+    b.	Open zip & copy contents (**only pictured files and Deploy folder**) to c:\oScripts  
     ![image](https://user-images.githubusercontent.com/28877715/29216887-0b82e146-7e7e-11e7-80ce-1eceb77bfbc3.png)   
     c.	Copy each MSI to directory c:\oScripts\Deploy\MSI  
 3.	**Add computer names to computers.txt in c:\oScripts** (test by adding ONE computer name)  
