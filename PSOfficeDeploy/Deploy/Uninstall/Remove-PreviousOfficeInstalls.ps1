@@ -1,13 +1,13 @@
 ﻿[CmdletBinding(SupportsShouldProcess=$true)]
 param(
 [Parameter(ValueFromPipelineByPropertyName=$true)]
-[bool]$RemoveClickToRunVersions = $false,
+[bool]$RemoveClickToRunVersions = $true,
 
 [Parameter(ValueFromPipelineByPropertyName=$true)]
-[bool]$Remove2016Installs = $false,
+[bool]$Remove2016Installs = $true,
 
 [Parameter(ValueFromPipelineByPropertyName=$true)]
-[bool]$Force = $false,
+[bool]$Force = $true,
 
 [Parameter(ValueFromPipelineByPropertyName=$true)]
 [bool]$KeepUserSettings = $true,
@@ -196,10 +196,10 @@ In this example the primary Office product will be removed even if it is Click-T
     [bool]$RemoveClickToRunVersions = $true,
 
     [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [bool]$Remove2016Installs = $false,
+    [bool]$Remove2016Installs = $true,
 
     [Parameter(ValueFromPipelineByPropertyName=$true)]
-    [bool]$Force = $false,
+    [bool]$Force = $true,
 
     [Parameter(ValueFromPipelineByPropertyName=$true)]
     [bool]$KeepUserSettings = $true,

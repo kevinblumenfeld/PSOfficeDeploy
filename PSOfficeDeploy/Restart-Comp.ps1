@@ -10,9 +10,7 @@ function Restart-Comp {
 
     }
     Process {
-        $_ | % {
-            Restart-Computer -ComputerName $_ -AsJob -Force
-        }
+        Restart-Computer -ComputerName $_ -AsJob -Force
     }
     End {
 

@@ -13,13 +13,11 @@ function Install-Office {
 
     }
     Process {
-        $_ | % {
-            Start-Job -ScriptBlock {
-                $comp = $using:_
-                CD C:\oScripts\Deploy\MSI
-                Invoke-Command -ComputerName $comp -ScriptBlock {
-                    msiexec.exe /i C:\oScripts\Deploy\MSI\OfficeProPlus.msi /qb! REBOOT=ReallySuppress /L*v c:\oScripts\o365_Install_without_PSEXEC.log
-                }
+        Start-Job -ScriptBlock {
+            $comp = $using:_
+            CD C:\oScripts\Deploy\MSI
+            Invoke-Command -ComputerName $comp -ScriptBlock {
+                msiexec.exe /i C:\oScripts\Deploy\MSI\OfficeProPlus.msi /qb! REBOOT=ReallySuppress /L*v c:\oScripts\o365_Install_without_PSEXEC.log
             }
         }
     }

@@ -49,44 +49,42 @@ IMPORTANT: INCLUDE THE TRAILING BACKSLASH AFTER FINAL DIRECTORY IN PATH!!!
         $logError = ($(get-date -Format yyyy-MM-dd_HH-mm-ss) + "_CopyToComputer_FAILED.csv")
     }
     Process {
-        $_ | % {
-            Start-Job -ScriptBlock {
-                $comp = $using:_
-                $source = $using:SourceDirsOrFiles
-                $destination = $using:DestinationDir
-                $ulogSuccess = $using:logSuccess
-                $ulogError = $using:logError
-                if ($destination -match [Regex]::Escape('\\%C\')) {
-                    $destination = $destination.replace('%C', $comp)
-                }
-                $dirs = Get-ChildItem -Path $source -Directory -Recurse -Force
-                if ($dirs) {
-                    $dirs | ForEach-Object {
-                        $NewDir = $_.FullName.replace($source, $destination)
-                        If (Test-Path $NewDir) {
-                            Write-Output "$NewDir already exists"
+        Start-Job -ScriptBlock {
+            $comp = $using:_
+            $source = $using:SourceDirsOrFiles
+            $destination = $using:DestinationDir
+            $ulogSuccess = $using:logSuccess
+            $ulogError = $using:logError
+            if ($destination -match [Regex]::Escape('\\%C\')) {
+                $destination = $destination.replace('%C', $comp)
+            }
+            $dirs = Get-ChildItem -Path $source -Directory -Recurse -Force
+            if ($dirs) {
+                $dirs | ForEach-Object {
+                    $NewDir = $_.FullName.replace($source, $destination)
+                    If (Test-Path $NewDir) {
+                        Write-Output "$NewDir already exists"
+                    }
+                    Else {
+                        Try {
+                            $null = New-Item -Type Directory $NewDir
+                            "$comp, $NewDir, Success" | Out-File "c:\ps\logs\$ulogSuccess" -Encoding ascii -Append
                         }
-                        Else {
-                            Try {
-                                $null = New-Item -Type Directory $NewDir
-                                "$comp, $NewDir, Success" | Out-File "c:\ps\logs\$ulogSuccess" -Encoding ascii -Append
-                            }
-                            Catch {
-                                "$comp, $NewDir, $_" | Out-File "c:\ps\logs\$ulogError" -Encoding ascii -Append
-                            }
+                        Catch {
+                            "$comp, $NewDir, $_" | Out-File "c:\ps\logs\$ulogError" -Encoding ascii -Append
                         }
                     }
-                    $files = Get-ChildItem -path $source -Recurse -Force -File
-                    $files| ForEach-Object { 
-                        Copy-item $_.fullname $_.FullName.replace($source, $destination) -force
-                        Write-Output $($_.FullName.replace($source, $destination))    
-                    }                           
-                } 
-                Else {
-                    Copy-Item ($source + "*") $destination -Force
                 }
+                $files = Get-ChildItem -path $source -Recurse -Force -File
+                $files| ForEach-Object { 
+                    Copy-item $_.fullname $_.FullName.replace($source, $destination) -force
+                    Write-Output $($_.FullName.replace($source, $destination))    
+                }                           
             } 
-        }
+            Else {
+                Copy-Item ($source + "*") $destination -Force
+            }
+        } 
     }
     End {
 
