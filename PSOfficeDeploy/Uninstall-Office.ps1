@@ -25,8 +25,11 @@ get-content ./hostnames.txt | Uninstall-Office -RemovalType AnyC2R
 
         [Parameter(Mandatory = $false)]
         [ValidateSet("MSI", "AnyC2R")]
-        [string] $RemovalType
-    )
+        [string] $RemovalType,
+ 
+        [Parameter(Mandatory = $false)]
+        [switch] $AlsoRemoveOffice2003
+)
     Begin {
         Start-Transcript
         
@@ -46,9 +49,13 @@ get-content ./hostnames.txt | Uninstall-Office -RemovalType AnyC2R
                 CD C:\oScripts\Deploy
                 Invoke-Command -ComputerName $comp -FilePath .\uoDotSourceC2R.ps1
             }
-            If ($uMSI -ne "MSI" -and $uMSI -ne "AnyC2R") {
+            If ($uMSI -ne "MSI" -and $uMSI -ne "AnyC2R" -and !$AlsoRemoveOffice2003) {
                 CD C:\oScripts\Deploy
                 Invoke-Command -ComputerName $comp -FilePath .\uoDotSource.ps1
+            }
+            If ($uMSI -ne "MSI" -and $uMSI -ne "AnyC2R" -and $AlsoRemoveOffice2003) {
+                CD C:\oScripts\Deploy
+                Invoke-Command -ComputerName $comp -FilePath .\uoDotSourceWith2003.ps1
             }
         }
     }
