@@ -20,10 +20,10 @@
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office```  
       _Use the below command if Office 2003 also needs to be removed_  
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office -AlsoRemoveOffice2003```  
-      * Check a few workstations for EventID 1034 _Windows Installer removed the product_  
+      * Use Step 8 to check progress  
 7.	**Install new Microsoft Office**  
     ```Get-Content c:\oScripts\computers.txt | Install-MSI```  
-      * Check a few workstations for EventID 1033 _Windows Installer installed the product_
+      * Use Step 8 to check progress  
 8.	**Report Microsoft Office Versions Installed** – output to screen & output to CSV (excel) commands below  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion```  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion  | Export-Csv ./OfficeVersInstalled.csv -NoTypeInformation```  
