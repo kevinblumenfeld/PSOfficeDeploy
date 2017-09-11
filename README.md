@@ -18,6 +18,7 @@
     ```Get-Content c:\oScripts\computers.txt | Send-FileAsJob -SourceDirsOrFiles C:\oScripts\ -DestinationDir \\%C\C$\oScripts\```  
 6.	**Uninstall old Microsoft Office**  
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office```
+    
       _Use the below command if Office 2003 also needs to be removed_
     ```Get-Content c:\oScripts\computers.txt | Uninstall-Office -AlsoRemoveOffice2003```
       * Check a few workstations for EventID 1034 _Windows Installer removed the product_
