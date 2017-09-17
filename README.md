@@ -4,12 +4,11 @@
     a.	Create directory c:\oScripts  
     b.	Open zip & copy contents (**only pictured files and Deploy folder**) to c:\oScripts  
     ![image](https://user-images.githubusercontent.com/28877715/29216887-0b82e146-7e7e-11e7-80ce-1eceb77bfbc3.png)   
-    c.	Copy each MSI to directory c:\oScripts\Deploy\MSI  
+    c.	Copy officeproplus.msi to directory c:\oScripts\Deploy\MSI  
 3.	**Add computer names to computers.txt in c:\oScripts** (test by adding ONE computer name)  
 4.	**Dot Source the functions**: Open PowerShell as an administrator on source workstation and run this command  
     ```Get-ChildItem -Path C:\oScripts -File -Recurse | Unblock-File```  
-    ```Get-ChildItem c:\oScripts\  -Filter '*.ps1' | % {. $_.fullname }```  
-    **If installing, copy officeproplus.msi to c:\oScripts\deploy\msi\officeproplus.msi**
+    ```Get-ChildItem c:\oScripts\  -Filter '*.ps1' | % {. $_.fullname }```
 
 ------------------------------------------
 **You are ready to run the scripts**
