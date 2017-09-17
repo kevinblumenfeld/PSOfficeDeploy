@@ -9,6 +9,7 @@
 4.	**Dot Source the functions**: Open PowerShell as an administrator on source workstation and run this command  
     ```Get-ChildItem -Path C:\oScripts -File -Recurse | Unblock-File```  
     ```Get-ChildItem c:\oScripts\  -Filter '*.ps1' | % {. $_.fullname }```
+    If installing, copy officeproplus.msi to c:\oScripts\deploy\msi\officeproplus.msi
 
 ------------------------------------------
 **You are ready to run the scripts**
