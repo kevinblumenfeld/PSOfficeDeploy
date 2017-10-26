@@ -26,4 +26,7 @@
       * Use Step 8 to check progress  
 8.	**Report Microsoft Office Versions Installed** – output to screen & output to CSV (excel) commands below  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion```  
-    ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion  | Export-Csv ./OfficeVersInstalled.csv -NoTypeInformation```  
+    ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion  | Export-Csv ./OfficeVersInstalled.csv -NoTypeInformation```
+    
+    NOTE: Click install toolkit to create a MSI/EXE that does not require a xml file. Link  
+             http://officedev.github.io/Office-IT-Pro-Deployment-Scripts/XmlEditor.html
