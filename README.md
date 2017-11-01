@@ -1,4 +1,4 @@
-
+NOTE: You must enable PS Remoting on all computers involved. A guide can be found [here](https://www.techrepublic.com/article/how-to-enable-powershell-remoting-via-group-policy/)
 1.	**Download zip file** by clicking green download button here https://github.com/kevinblumenfeld/PSOfficeDeploy   
 2.	**On Source workstation** (use Windows 10 - in PS type $psversiontable if version is lower than 5.1, install PS 5.1 [here](https://www.microsoft.com/en-us/download/details.aspx?id=54616))  
     a.	Create directory c:\oScripts  
