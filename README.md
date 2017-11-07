@@ -28,5 +28,8 @@ NOTE: You must enable PS Remoting on all computers involved. A guide can be foun
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion```  
     ```Get-Content c:\oScripts\computers.txt | Get-OfficeVersion  | Export-Csv ./OfficeVersInstalled.csv -NoTypeInformation```
     
-    NOTE: Click install toolkit to create a MSI/EXE that does not require a xml file. Link:  
-             http://officedev.github.io/Office-IT-Pro-Deployment-Scripts/XmlEditor.html
+    NOTE: Click, Install Toolkit to create a MSI/EXE that does not require a xml file. Link:  
+             http://officedev.github.io/Office-IT-Pro-Deployment-Scripts/XmlEditor.html  
+             Due to a bug, remove English as a language and select, MATCHOS  
+             ![image](https://user-images.githubusercontent.com/28877715/32521730-afa4d79e-c3e2-11e7-8ffe-2281b578bede.png)
+
